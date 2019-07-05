@@ -1,0 +1,2 @@
+module PartyOpinionsHelper
+end

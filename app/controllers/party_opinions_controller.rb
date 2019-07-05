@@ -1,0 +1,2 @@
+class PartyOpinionsController < ApplicationController
+end

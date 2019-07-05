@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stance: false
+  issue: 
+  party: 
+
+two:
+  stance: false
+  issue: 
+  party: 
