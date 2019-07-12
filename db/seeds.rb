@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Party.create!({
+  name: 'Liberal Party of Canada'
+})
+
+Party.create!({
+  name: 'Conservative Party of Canada'
+})
+
+Party.create!({
+  name: 'New Democratic Party'
+})
+
+Party.create!({
+  name: 'Green Party of Canada'
+})
+
+Party.create!({
+  name: 'Bloc Québécois'
+})
