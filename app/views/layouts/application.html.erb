@@ -9,12 +9,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://kit.fontawesome.com/26b442b68f.js"></script>
   </head>
 
   <body>
-<!--     <p class="notice"><%#= notice %></p>
-    <p class="alert"><%#= alert %></p> -->
+
+    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+
     <%= yield %>
   </body>
+
+
 </html>

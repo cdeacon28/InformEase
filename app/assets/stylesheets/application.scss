@@ -1,7 +1,12 @@
 @import "components/index";
+@import "quizz";
 @import "issues";
 @import "parties";
+@import "results";
 
-li {
-  list-style: none;
+
+
+
+body {
+  background-color: #F5F5F5;
 }
