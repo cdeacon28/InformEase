@@ -18,9 +18,15 @@
   <% end %>
 </div>
 
-<h4><%= link_to "Go to the quiz!", quizz_path %></h4>
+<div class="quizz-div">
+  <h4><%= link_to "Go to the quiz!", quizz_path, class: "btn btn-primary btn-lg" %></h4>
+</div>
 
-<%= link_to "Find out where your party stands", parties_path %>
+<div class="party-stands-div">
+  <%= link_to "Find out where your party stands", parties_path %>
+</div>
+
+
 
 
 <script src="" type="text/javascript"></script>
