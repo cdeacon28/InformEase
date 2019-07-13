@@ -25,14 +25,15 @@
 }
 
 .btn-primary {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 75px;
+  margin-left: 10px;
+  // margin-right: auto;
+  padding: 6px 50px;
   background-color: #00C89F;
 
   &:hover {
     text-decoration: none;
     border: none;
+    background-color: #00AA85;
   }
 
 }
