@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'results' => 'pages#results', as: :results
 
   # post 'user-opinions' => 'user_opinions#create', as: :user_opinions
-  put 'user-opinions/:id' => 'user_opinions#toggle_is_interested_in'
+  put 'user-opinions/:id/toggle' => 'user_opinions#toggle_is_interested_in', as: :user_opinions_toggle
+  put 'user_opinions/:id/stance-true' => 'user_opinions#set_stance_to_true', as: :user_opinions_stance_true
+  put 'user_opinions/:id/stance-false' => 'user_opinions#set_stance_to_false', as: :user_opinions_stance_false
   # post 'party-opinions' => 'issues#create'
 end
