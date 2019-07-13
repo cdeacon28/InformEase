@@ -25,11 +25,18 @@ class PagesController < ApplicationController
 
     Party.all.each do |party|
       score = 0
-      party.party_opinions.each do |party_opinion|
-        party_stance = party_opinion.stance
-        user_stance = current_user.user_opinions.find_by(issue: party_opinion.issue).stance
+
+      current_user.user_opinions.where(is_interested_in: true).each do |user_opinion|
+        user_stance = user_opinion.stance
+        party_stance = party.party_opinions.find_by(issue: user_opinion.issue).stance
         score += 1 if party_stance == user_stance
       end
+
+      # party.party_opinions.each do |party_opinion|
+      #   party_stance = party_opinion.stance
+      #   user_stance = current_user.user_opinions.find_by(issue: party_opinion.issue).stance
+      #   score += 1 if party_stance == user_stance
+      # end
 
       Score.create(
         score: score,
@@ -57,7 +64,7 @@ class PagesController < ApplicationController
   end
 
   def results
-    @user_opinions = UserOpinion.where(user: current_user)
+    @user_opinions = UserOpinion.where(user: current_user).where(is_interested_in: true)
     @scores = Score.where(user: current_user)
 
     # Find out how many issues the Liberal have answered the same as the user

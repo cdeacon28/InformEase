@@ -10,3 +10,17 @@
 body {
   background-color: #F5F5F5;
 }
+
+
+.quizz-div,
+.party-stands-div {
+  height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.party-stands-div {
+  font-size: 24px;
+}

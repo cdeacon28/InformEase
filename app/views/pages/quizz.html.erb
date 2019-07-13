@@ -10,45 +10,47 @@
 
 
 <div class="flexbox-quizz">
-<% @user_opinions.each do |user_opinion| %>
-  <li class="quizz-flexbox" data-user-opinion-id="<%= user_opinion.id %>">
-    <div class="text-center">
-      <div>
-        <h2><%= user_opinion.issue.name %></h2>
+  <% @user_opinions.each do |user_opinion| %>
+    <li class="quizz-flexbox" data-user-opinion-id="<%= user_opinion.id %>">
+      <div class="text-center">
+        <div>
+          <h2><%= user_opinion.issue.name %></h2>
+        </div>
+        <div>
+          <%= user_opinion.issue.question %>
+        </div>
       </div>
-      <div>
-        <%= user_opinion.issue.question %>
+
+      <div class="d-flex justify-content-center align-items-center mt-3">
+        <% if user_opinion.stance %>
+          <%= link_to user_opinions_stance_false_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 button-false" do %>
+             Disagree
+          <% end %>
+
+          <%= link_to user_opinions_stance_true_path(user_opinion), method: 'patch', remote: true, class: "button-answer selected mx-3 button-true" do %>
+
+              I Agree
+          <% end %>
+        <% else %>
+          <%= link_to user_opinions_stance_false_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 button-false selected" do %>
+              Disagree
+          <% end %>
+
+          <%= link_to user_opinions_stance_true_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 button-true" do %>
+              Agree
+          <% end %>
+        <% end %>
       </div>
-    </div>
+    </li>
+  <% end %>
 
-    <div class="d-flex justify-content-center align-items-center mt-3">
-      <% if user_opinion.stance %>
-        <%= link_to user_opinions_stance_false_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 button-false" do %>
-           Disagree
-        <% end %>
-
-        <%= link_to user_opinions_stance_true_path(user_opinion), method: 'patch', remote: true, class: "button-answer selected mx-3 button-true" do %>
-
-            I Agree
-        <% end %>
-      <% else %>
-        <%= link_to user_opinions_stance_false_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 button-false selected" do %>
-            Disagree
-        <% end %>
-
-        <%= link_to user_opinions_stance_true_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 button-true" do %>
-            Agree
-        <% end %>
-      <% end %>
-    </div>
-  </li>
-<% end %>
-
-
-<%= link_to submit_quizz_path, method: 'patch', class: "btn btn-primary" do %>
-  Submit Answers
-<% end %>
 
 
 </div>
 
+<div class="text-center pb-5">
+  <%= link_to submit_quizz_path, method: 'patch', class: "btn btn-primary btn-lg" do %>
+    Submit Answers
+  <% end %>
+
+</div>
