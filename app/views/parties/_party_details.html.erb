@@ -1,14 +1,14 @@
 <% parties.each do |party| %>
   <div class="party-info">
-    <h2><%= party.name %></h2>
+      <h2><%= party.name %></h2>
 
-    <% party.party_opinions.each do |party_opinion| %>
-      <li>
-        <strong><%= party_opinion.issue.name %>:</strong>
-        <%= party_opinion.details %>
-      </li>
-    <% end %>
-
+      <% party.party_opinions.each do |party_opinion| %>
+        <li>
+          <strong><%= party_opinion.issue.name %>:</strong>
+          <%= party_opinion.details %>
+        </li>
+      <% end %>
+      <hr>
   </div>
 
   <% unless parties.index(party) == parties.length - 1 %>
