@@ -3,7 +3,7 @@
 <h3>Which issues matter the most to you?</h3>
 
 <% @issues.each do |issue| %>
-  <p><%= issue.name  %></p>
+  <p class="issue-select"><%= issue.name  %></p>
 <% end %>
 
 <%= link_to "Find out where your party stands", parties_path %>

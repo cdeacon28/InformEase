@@ -2,4 +2,10 @@
 
 <h1>Parties</h1>
 
+<select name="Party">
+  <%= @parties.each do |party| %>
+    <option value="<%= party.id %>"><%= party.name %></option>
+  <% end %>
+</select>
+
 
