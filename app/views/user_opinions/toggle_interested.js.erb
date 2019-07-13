@@ -1,0 +1,11 @@
+var refreshButton = () => {
+  const stance = <%= @user_opinion.stance %>
+   const user_opinion_id = <%= @user_opinion.id %>;
+   const user_opinion_div = document.querySelector(`div[data-user-opinion-id='${user_opinion_id}']`);
+   const link = user_opinion_div.querySelector('.button-answer')
+
+   link.classList.toggle('selected')
+
+}
+
+refreshButton();

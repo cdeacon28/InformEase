@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def index
     @issues = Issue.all
-
+    @user_opinions = UserOpinion.where(user: current_user)
   end
 
   def quizz
