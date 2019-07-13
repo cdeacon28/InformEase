@@ -1,17 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Parties</h1>
+<h1>Where do the parties stand?</h1>
 <hr>
 
 <%= form_tag 'parties/filter', method: :get, remote: true do |form| %>
-  <select name="party">
-    <option value="all">All</option>
-    <%= @parties.each do |party| %>
-      <option value="<%= party.id %>"><%= party.name %></option>
-    <% end %>
-  </select>
-
-  <%= submit_tag "Filter", class: "btn btn-primary" %>
+  <div class="party-dropdown">
+    <select name="party">
+      <option value="all">All</option>
+      <%= @parties.each do |party| %>
+        <option value="<%= party.id %>"><%= party.name %></option>
+      <% end %>
+    </select>
+    <%= submit_tag "Filter", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 <div id="parties-info">
