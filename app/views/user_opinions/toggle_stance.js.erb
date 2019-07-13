@@ -1,0 +1,21 @@
+console.log(`Hello from toggle_stance. Stance set to: <%= @user_opinion.stance %>`);
+
+var refreshButtons = () => {
+  const stance = <%= @user_opinion.stance %>
+   const user_opinion_id = <%= @user_opinion.id %>;
+   const user_opinion_li = document.querySelector(`li[data-user-opinion-id='${user_opinion_id}']`);
+   const user_opinion_true_button = user_opinion_li.querySelector('.button-true');
+   const user_opinion_false_button = user_opinion_li.querySelector('.button-false');
+
+   if(stance){
+     user_opinion_false_button.classList.remove('selected')
+     user_opinion_true_button.classList.add('selected')
+   }
+   else {
+     user_opinion_false_button.classList.add('selected')
+     user_opinion_true_button.classList.remove('selected')
+   }
+
+}
+
+refreshButtons();

@@ -17,6 +17,11 @@ class UserOpinionsController < ApplicationController
     @user_opinion.stance = true
 
     @user_opinion.save
+
+    respond_to do |format|
+      format.html { redirect_to recipes_path }
+      format.js { render 'toggle_stance.js.erb' }
+    end
   end
 
   def set_stance_to_false
@@ -25,5 +30,10 @@ class UserOpinionsController < ApplicationController
     @user_opinion.stance = false
 
     @user_opinion.save
+
+    respond_to do |format|
+      format.html { redirect_to quizz_path }
+      format.js { render 'toggle_stance.js.erb' }
+    end
   end
 end
