@@ -1,8 +1,10 @@
 <div class="container py-3">
   <h1 class="mb-5">Your Results: See which party most aligns with your answers</h1>
 
+  <%= image_tag("piechart", class: "pie-chart") %>
+
   <% @scores.each do |score| %>
-    <p><%= score.party.name %>: <%= score.score %></p>
+    <p><strong><%= score.party.name %></strong>: <%= score.score %> matching answers</p>
   <% end %>
 
   <% @user_opinions.each do |user_opinion| %>
