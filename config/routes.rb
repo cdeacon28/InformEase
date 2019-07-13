@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # resources :parties
   # resources :issues
   # resources :party_opinions, only: [:index, :create, :update, :destroy]
