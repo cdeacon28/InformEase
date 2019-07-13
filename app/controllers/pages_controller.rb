@@ -38,6 +38,21 @@ class PagesController < ApplicationController
       )
     end
 
+    g = Gruff::Pie.new
+    g.title = 'Your Quiz Results'
+
+    g.theme = {
+      :colors => %w(red blue orange green),
+      :marker_color => 'blue',
+      :background_colors => %w(white white)
+    }
+
+    Score.where(user: current_user).each do |score|
+      g.data score.party.name, score.score
+    end
+
+    g.write('app/assets/images/piechart.png')
+
     redirect_to results_path
   end
 
@@ -46,15 +61,6 @@ class PagesController < ApplicationController
     @scores = Score.where(user: current_user)
 
     # Find out how many issues the Liberal have answered the same as the user
-
-    g = Gruff::Pie.new
-    g.title = 'Your Quiz Results'
-
-    @scores.each do |score|
-      g.data score.party.name, score.score
-    end
-
-    g.write('app/assets/images/piechart.png')
 
     @parties = Party.all
   end

@@ -27,8 +27,8 @@
         <% end %>
 
         <%= link_to user_opinions_stance_true_path(user_opinion), method: 'patch', remote: true, class: "button-answer selected mx-3 button-true" do %>
-            Agree
 
+            I Agree
         <% end %>
       <% else %>
         <%= link_to user_opinions_stance_false_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 button-false selected" do %>
