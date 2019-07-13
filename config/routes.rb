@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # devise_for :users, :controllers => {:registrations => "registrations
   devise_for :users
   # resources :parties
   # resources :issues
@@ -10,11 +11,12 @@ Rails.application.routes.draw do
   get 'parties' => 'parties#index', as: :parties
   get 'party' => 'parties#show', as: :party
   get 'quizz' => 'pages#quizz', as: :quizz
+  patch 'quizz/submit' => 'pages#submit_quizz', as: :submit_quizz
   get 'results' => 'pages#results', as: :results
 
   # post 'user-opinions' => 'user_opinions#create', as: :user_opinions
-  put 'user-opinions/:id/toggle' => 'user_opinions#toggle_is_interested_in', as: :user_opinions_toggle
-  put 'user_opinions/:id/stance-true' => 'user_opinions#set_stance_to_true', as: :user_opinions_stance_true
-  put 'user_opinions/:id/stance-false' => 'user_opinions#set_stance_to_false', as: :user_opinions_stance_false
+  patch 'user-opinions/:id/toggle' => 'user_opinions#toggle_is_interested_in', as: :user_opinions_toggle
+  patch 'user_opinions/:id/stance-true' => 'user_opinions#set_stance_to_true', as: :user_opinions_stance_true
+  patch 'user_opinions/:id/stance-false' => 'user_opinions#set_stance_to_false', as: :user_opinions_stance_false
   # post 'party-opinions' => 'issues#create'
 end
