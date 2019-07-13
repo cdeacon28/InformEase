@@ -4,10 +4,12 @@
 
 <div class="banner-quizz">
   <div class="title-quizz">
-  <h1>Find out which party is right for you!</h1>
+  <h1>Find out which party<br> is right for you!</h1>
   </div>
 </div>
 
+
+<div class="flexbox-quizz">
 <% @user_opinions.each do |user_opinion| %>
   <li class="quizz-flexbox" data-user-opinion-id="<%= user_opinion.id %>">
     <div class="text-center">
@@ -18,7 +20,6 @@
         <%= user_opinion.issue.question %>
       </div>
     </div>
-
 
     <div class="d-flex justify-content-center align-items-center mt-3">
       <% if user_opinion.stance %>
@@ -43,8 +44,11 @@
   </li>
 <% end %>
 
-<div class="submit-quizz-button">
+
 <%= link_to submit_quizz_path, method: 'patch', class: "btn btn-primary" do %>
   Submit Answers
 <% end %>
+
+
 </div>
+
