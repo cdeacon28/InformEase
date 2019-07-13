@@ -2,4 +2,12 @@
 
 <h1>Parties</h1>
 
+<select name="Party">
+  <option value="all">All</option>
+  <%= @parties.each do |party| %>
+    <option value="<%= party.id %>"><%= party.name %></option>
+  <% end %>
+</select>
+
+<%= render 'party_details', parties: @parties  %>
 

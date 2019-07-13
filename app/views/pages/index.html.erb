@@ -1,4 +1,14 @@
-<div class="container">
-  <div>INDEX PAGE</div>
-  <button class="btn btn-primary">BUTTON</button>
-</div>
+<h1>Welcome, <%= current_user.username  %>!</h1>
+
+<h3>Which issues matter the most to you?</h3>
+
+<% @issues.each do |issue| %>
+  <p class="issue-select"><%= issue.name  %></p>
+<% end %>
+
+<%= link_to "Find out where your party stands", parties_path %>
+
+<h4>Not sure which party speaks the most to you? Take our quiz! <%= link_to "Click here", quizz_path %></h4>
+
+<script src="" type="text/javascript"></script>
+
