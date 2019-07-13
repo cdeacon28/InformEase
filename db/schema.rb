@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_04_213053) do
+ActiveRecord::Schema.define(version: 2019_07_12_233821) do
 
   create_table "issues", force: :cascade do |t|
     t.string "name"
@@ -26,12 +26,24 @@ ActiveRecord::Schema.define(version: 2019_07_04_213053) do
 
   create_table "party_opinions", force: :cascade do |t|
     t.boolean "stance"
+    t.string "details"
     t.integer "issue_id"
     t.integer "party_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["issue_id"], name: "index_party_opinions_on_issue_id"
     t.index ["party_id"], name: "index_party_opinions_on_party_id"
+  end
+
+  create_table "user_opinions", force: :cascade do |t|
+    t.boolean "stance"
+    t.boolean "is_interested_in"
+    t.integer "issue_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_user_opinions_on_issue_id"
+    t.index ["user_id"], name: "index_user_opinions_on_user_id"
   end
 
 end
