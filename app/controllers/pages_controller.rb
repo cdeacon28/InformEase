@@ -1,13 +1,12 @@
 class PagesController < ApplicationController
   def index
     @issues = Issue.all
-
+    @user_opinions = UserOpinion.where(user: current_user)
   end
 
   def quizz
     # @user_opinions = current_user.user_opinions.where(is_interested_in: true)
     @user_opinions = current_user.user_opinions
-
 
     @issues = []
 
