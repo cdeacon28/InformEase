@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :user_opinions, dependent: :destroy
+  has_many :issues, through: :user_opinions
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
