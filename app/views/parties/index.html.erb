@@ -7,7 +7,6 @@
 <%= form_tag 'parties/filter', method: :get, remote: true, class: "form-inline" do |form| %>
   <div class="form-group">
     <select name="party" class="form-control">
-
       <option value="all">All</option>
       <%= @parties.each do |party| %>
         <option value="<%= party.id %>"><%= party.name %></option>
