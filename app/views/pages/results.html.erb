@@ -1,6 +1,10 @@
 <div class="container py-3">
   <h1 class="mb-5">Your Results: See which party most aligns with your answers</h1>
 
+  <% @scores.each do |score| %>
+    <p><%= score.party.name %>: <%= score.score %></p>
+  <% end %>
+
   <% @user_opinions.each do |user_opinion| %>
     <li>
       <h3>
@@ -20,10 +24,22 @@
 
       <div>
         <% @parties.each do |party| %>
-          <div>
-            <strong><%= party.name %>: </strong>
-            <%= party.party_opinions.find_by(issue: user_opinion.issue).stance %>
-          </div>
+          <% if party.party_opinions.find_by(issue: user_opinion.issue).stance == user_opinion.stance %>
+            <div class="party-stance match">
+              <i class="far fa-check-circle"></i>
+          <% else %>
+            <div class="party-stance not-match">
+              <i class="far fa-times-circle"></i>
+          <% end %>
+
+              <strong><%= party.name %>: </strong>
+              <% if party.party_opinions.find_by(issue: user_opinion.issue).stance %>
+                  <span class="user-stance">Agree</span>
+              <% else %>
+                <span class="user-stance">Disagree</span>
+              <% end %>
+            </div>
+          <!-- </div> -->
         <% end %>
 
       </div>

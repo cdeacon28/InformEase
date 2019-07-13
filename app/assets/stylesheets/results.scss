@@ -1,0 +1,13 @@
+.party-stance {
+  i {
+    font-size: 24px;
+  }
+
+  &.match i {
+    color: green;
+  }
+
+  &.not-match i {
+    color: red;
+  }
+}

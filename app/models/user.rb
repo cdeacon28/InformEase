@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :user_opinions, dependent: :destroy
   has_many :issues, through: :user_opinions
+  has_many :scores, dependent: :destroy
+
   after_create :create_user_account
 
   # Include default devise modules. Others available are:
