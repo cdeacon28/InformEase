@@ -1,9 +1,9 @@
-class PartiesController < ApplicationController
-  def index
+class UserOpinions < ApplicationController
+  def create
     @parties = Party.all
   end
 
-  def show
+  def update
     @parties = Party.find(params[:id])
   end
 end
