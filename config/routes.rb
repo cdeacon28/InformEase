@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'parties' => 'parties#index', as: :parties
   get 'party' => 'parties#show', as: :party
+  get 'parties/filter' => 'parties#filter', as: :parties_filter
+
   get 'quizz' => 'pages#quizz', as: :quizz
   patch 'quizz/submit' => 'pages#submit_quizz', as: :submit_quizz
   get 'results' => 'pages#results', as: :results
