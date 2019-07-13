@@ -1,4 +1,5 @@
 require 'gruff'
+# require File.dirname(__FILE__) + '/gruff_test_case'
 
 class PagesController < ApplicationController
   def index
@@ -48,7 +49,12 @@ class PagesController < ApplicationController
 
     g = Gruff::Pie.new
     g.title = 'Your Quiz Results'
-    g
+
+    @scores.each do |score|
+      g.data score.party.name, score.score
+    end
+
+    g.write('app/assets/images/piechart.png')
 
     @parties = Party.all
   end
