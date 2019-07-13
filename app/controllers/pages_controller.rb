@@ -15,4 +15,16 @@ class PagesController < ApplicationController
       @issues.push(user_opinion)
     end
   end
+
+  def submit_quizz
+    current_user.has_taken_quizz = true
+
+    redirect_to results_path
+  end
+
+  def results
+    @user_opinions = UserOpinion.where(user: current_user)
+
+    @parties = Party.all
+  end
 end
