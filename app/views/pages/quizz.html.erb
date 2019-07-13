@@ -1,0 +1,5 @@
+<h1>Find out which party is right for you!</h1>
+
+<% @user_opinions.each do |user_opinion| %>
+  <li><%= user_opinion.issue.name %></li>
+<% end %>

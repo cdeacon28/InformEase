@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(version: 2019_07_13_021745) do
   end
 
   create_table "user_opinions", force: :cascade do |t|
-    t.boolean "stance"
-    t.boolean "is_interested_in"
+    t.boolean "stance", default: false
+    t.boolean "is_interested_in", default: false
+    t.boolean "has_taken_quizz", default: false
     t.integer "issue_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
