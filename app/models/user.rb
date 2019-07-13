@@ -28,7 +28,6 @@ class User < ApplicationRecord
       UserOpinion.create(
         user: self,
         issue: issue
-
       )
     end
   end
