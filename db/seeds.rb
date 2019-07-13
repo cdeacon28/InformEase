@@ -61,7 +61,7 @@ plastics = Issue.create!(
 )
 
 huawei = Issue.create!(
-  name: 'Huawei Ban',
+  name: 'Huawei',
   question: 'Should Canada ban Huawei from contributing to a 5G network?'
 )
 
@@ -76,12 +76,12 @@ ubi = Issue.create!(
 )
 
 assisted_suicide = Issue.create!(
-  name: 'Assisted Suicide',
+  name: 'Assisted Dying',
   question: 'Should Canada expand right-to-die legislation?'
 )
 
 us_border = Issue.create!(
-  name: 'Border crossings',
+  name: 'Border Crossings',
   question: 'Should Canada be doing more to stop illegal foot crossing over the US border?'
 )
 
@@ -93,8 +93,9 @@ trans_mountain = Issue.create!(
 PartyOpinion.create!(
   party: liberal,
   issue: pharmacare,
-  stance: true
-)
+  stance: true,
+  details: "Amend the Health Act by adding 'prescription medicinces prescribed by a licensed practitioner' to the definition of covered services. Develop, with provincial and territorial cooperation, a universal, single-payer, evidencebased, and sustainable public drug plan."
+  )
 
 PartyOpinion.create!(
   party: conservative,
@@ -309,8 +310,9 @@ PartyOpinion.create!(
 PartyOpinion.create!(
   party: conservative,
   issue: assisted_suicide,
-  stance: false
-)
+  stance: false,
+  details: "Support conscience rights for doctors, nurses, and others to refuse to participate in, or refer their patients for abortion, assisted suicide, or euthanasia."
+  )
 
 PartyOpinion.create!(
   party: ndp,
