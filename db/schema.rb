@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_021745) do
+ActiveRecord::Schema.define(version: 2019_07_13_165623) do
 
   create_table "issues", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2019_07_13_021745) do
     t.datetime "updated_at", null: false
     t.index ["issue_id"], name: "index_party_opinions_on_issue_id"
     t.index ["party_id"], name: "index_party_opinions_on_party_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer "score"
+    t.integer "user_id"
+    t.integer "party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["party_id"], name: "index_scores_on_party_id"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "user_opinions", force: :cascade do |t|

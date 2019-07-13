@@ -9,6 +9,11 @@ class UserOpinionsController < ApplicationController
     @user_opinion.is_interested_in = !@user_opinion.is_interested_in
 
     @user_opinion.save
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { render 'toggle_interested.js.erb' }
+    end
   end
 
   def set_stance_to_true
