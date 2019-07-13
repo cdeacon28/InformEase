@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get 'quizz' => 'pages#quizz', as: :quizz
   get 'results' => 'pages#results', as: :results
 
-  post 'user-opinions' => 'user_opinions#create', as: :user_opinions
-  put 'user-opinions' => 'user_opinions#toggle_is_interested_in'
+  # post 'user-opinions' => 'user_opinions#create', as: :user_opinions
+  put 'user-opinions/:id/toggle' => 'user_opinions#toggle_is_interested_in'
+  put 'user_opinions/:id/stance' => 'user_opinions#setstance'
   # post 'party-opinions' => 'issues#create'
 end
