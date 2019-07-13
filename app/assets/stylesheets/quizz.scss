@@ -10,6 +10,13 @@
   box-shadow: 0 1px 5px 1px rgba(191, 191, 191, 0.8);
 }
 
+.flexbox-quizz {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 30px
+}
+
 .text-center {
   font-family: Georgia, serif;
 }
@@ -18,8 +25,9 @@
   position: relative;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), image-url('ivote.jpg');
   background-size: cover;
-  background-position: 25% 57%;
-  height: 35vh;  width: 100%;
+  background-position: 25% 50%;
+  height: 35vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +40,10 @@
   font-family: 'DM Serif Display', serif;
   font-weight: normal;
   color: white;
+  font-size: 3.5rem;
 }
+
+
 
 li {
   list-style: none;
