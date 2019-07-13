@@ -1,0 +1,6 @@
+var filterPartyInfo = (infoHTML) => {
+  const infoDiv = document.querySelector('#parties-info')
+  infoDiv.innerHTML = infoHTML;
+}
+
+filterPartyInfo('<%= j render "party_details", parties: @parties %>');

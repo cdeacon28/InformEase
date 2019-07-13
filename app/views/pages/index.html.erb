@@ -1,14 +1,27 @@
 <h1>Welcome, <%= current_user.username  %>!</h1>
 
-<h3>Which issues matter the most to you?</h3>
+<h3>Which issues matter to you?</h3>
 
-<% @issues.each do |issue| %>
-  <p class="issue-select"><%= issue.name  %></p>
-<% end %>
+<div class="user-issues d-flex flex-wrap">
+  <% @user_opinions.each do |user_opinion| %>
+    <div data-user-opinion-id="<%= user_opinion.id %>" class="mt-5 mb-5">
+      <% if user_opinion.is_interested_in %>
+        <%= link_to user_opinions_toggle_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3 selected" do %>
+          <%= user_opinion.issue.name %>
+        <% end %>
+      <% else %>
+        <%= link_to user_opinions_toggle_path(user_opinion), method: 'patch', remote: true, class: "button-answer mx-3" do %>
+          <%= user_opinion.issue.name %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<h4><%= link_to "Go to the quiz!", quizz_path %></h4>
 
 <%= link_to "Find out where your party stands", parties_path %>
 
-<h4>Not sure which party speaks the most to you? Take our quiz! <%= link_to "Click here", quizz_path %></h4>
 
 <script src="" type="text/javascript"></script>
 
